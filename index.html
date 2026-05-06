@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adam Rogowicz — Product Leader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --ink-light: #555;
+      --ink-faint: #888;
+      --rule: #d8d4cf;
+      --bg: #faf9f7;
+      --bg-warm: #f3f1ed;
+      --accent: #2e5c8a;
+      --accent-light: #e8eef5;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --max: 780px;
+      --gap: 2.5rem;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.7;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* HEADER */
+    header {
+      border-bottom: 1px solid var(--rule);
+      padding: 3.5rem 2rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    .header-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 1.2rem;
+    }
+
+    .positioning {
+      font-size: 1.05rem;
+      color: var(--ink-light);
+      max-width: 560px;
+      line-height: 1.65;
+      margin-bottom: 1.8rem;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .contact-row a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .contact-row a:hover { border-bottom-color: var(--accent); }
+
+    .contact-row span {
+      font-size: 0.82rem;
+      color: var(--ink-faint);
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--rule);
+      z-index: 100;
+      padding: 0 2rem;
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      gap: 0;
+    }
+
+    nav a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-decoration: none;
+      padding: 1rem 1.2rem 0.9rem;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--ink);
+      border-bottom-color: var(--accent);
+    }
+
+    /* MAIN */
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+
+    /* SECTIONS */
+    section {
+      padding-top: 4rem;
+      border-top: 1px solid var(--rule);
+      margin-top: 4rem;
+    }
+
+    section:first-child { border-top: none; margin-top: 3rem; }
+
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.8rem;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: 1.85rem;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: var(--ink-light);
+      margin-bottom: 1rem;
+      max-width: 660px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .about-point {
+      padding-left: 1rem;
+      border-left: 2px solid var(--accent-light);
+    }
+
+    .about-point strong {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .about-point p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* CASE STUDIES */
+    .case-study {
+      margin-bottom: 3.5rem;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .case-study:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .case-meta {
+      display: flex;
+      gap: 1rem;
+      align-items: baseline;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .case-company {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    .case-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 0.15rem 0.6rem;
+      border-radius: 2px;
+      letter-spacing: 0.04em;
+    }
+
+    .case-body {
+      margin-top: 1.4rem;
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    .case-block {}
+
+    .case-block-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 0.4rem;
+    }
+
+    .case-block p {
+      font-size: 0.92rem;
+      margin: 0;
+    }
+
+    .outcome-row {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 0.2rem;
+    }
+
+    .outcome-stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .outcome-stat .stat-num {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .outcome-stat .stat-label {
+      font-size: 0.75rem;
+      color: var(--ink-faint);
+      margin-top: 0.2rem;
+      max-width: 140px;
+      line-height: 1.4;
+    }
+
+    .lesson-block {
+      background: var(--bg-warm);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.1rem;
+      border-radius: 0 3px 3px 0;
+    }
+
+    .lesson-block .case-block-label { color: var(--accent); }
+
+    .lesson-block p {
+      font-size: 0.88rem;
+      font-style: italic;
+      color: var(--ink-light);
+    }
+
+    /* CRAFT */
+    .craft-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.8rem;
+    }
+
+    .craft-card {
+      background: var(--bg-warm);
+      padding: 1.4rem 1.5rem;
+      border-radius: 3px;
+    }
+
+    .craft-card h3 {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.7rem;
+    }
+
+    .craft-card p {
+      font-size: 0.87rem;
+      line-height: 1.6;
+      color: var(--ink-light);
+      margin: 0;
+    }
+
+    /* DOMAIN */
+    .domain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.8rem;
+    }
+
+    .domain-item {
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+    }
+
+    .domain-item strong {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .domain-item ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .domain-item ul li {
+      font-size: 0.8rem;
+      color: var(--ink-faint);
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      color: var(--ink-faint);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* PRINT */
+    @media print {
+      nav { display: none; }
+      header::before { display: none; }
+      section { page-break-inside: avoid; }
+      .case-study { page-break-inside: avoid; }
+      body { font-size: 13px; }
+      h1 { font-size: 2rem; }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .craft-grid { grid-template-columns: 1fr; }
+      .domain-grid { grid-template-columns: 1fr 1fr; }
+      .outcome-row { gap: 1.2rem; }
+      nav a { padding: 0.9rem 0.7rem; font-size: 0.68rem; }
+    }
+
+    /* FADE IN */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    header, section {
+      animation: fadeUp 0.5s ease both;
+    }
+
+    section:nth-child(2) { animation-delay: 0.05s; }
+    section:nth-child(3) { animation-delay: 0.1s; }
+    section:nth-child(4) { animation-delay: 0.15s; }
+    section:nth-child(5) { animation-delay: 0.2s; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <p class="eyebrow">Product Portfolio</p>
+    <h1>Adam Rogowicz</h1>
+    <p class="positioning">Senior Product Manager with more than 10 years of experience across SaaS, IoT, AI-driven platforms, and connected devices. I translate complex technical systems into clear product decisions that align engineering, data science, and commercial teams around measurable outcomes.</p>
+    <div class="contact-row">
+      <a href="mailto:a.rogowicz@gmail.com">a.rogowicz@gmail.com</a>
+      <span>|</span>
+      <a href="https://www.linkedin.com/in/rogowicz" target="_blank">linkedin.com/in/rogowicz</a>
+      <span>|</span>
+      <span>Sherwood, Oregon</span>
+      <span>|</span>
+      <span>503.784.8868</span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#about">About</a>
+    <a href="#cases">Case Studies</a>
+    <a href="#craft">Craft</a>
+    <a href="#domain">Domain</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label">How I work</p>
+    <h2>Product leadership at the intersection of technical depth and commercial clarity</h2>
+    <p>I have spent my career in environments where the product problem is genuinely hard: regulated markets, complex infrastructure, AI systems with real reliability stakes, and 0-to-1 launches with no existing playbook. My value is in making the complexity legible — to engineering, to leadership, and to customers.</p>
+    <div class="about-grid">
+      <div class="about-point">
+        <strong>Discovery first</strong>
+        <p>I start with the gap between what customers experience and what the system was designed to deliver. That gap is where the real product problem lives.</p>
+      </div>
+      <div class="about-point">
+        <strong>Requirements that hold</strong>
+        <p>I write requirements that engineering can execute without ambiguity: testable acceptance conditions, edge cases identified before handoff, and tradeoffs made explicit rather than deferred.</p>
+      </div>
+      <div class="about-point">
+        <strong>AI as a tool, not a strategy</strong>
+        <p>I have used LLM-driven discovery, prompt-engineered diagnostic workflows, and ML-backed alerting in production products. I treat AI as a capability that requires clear human review boundaries, not as a roadmap item.</p>
+      </div>
+      <div class="about-point">
+        <strong>Metrics that matter</strong>
+        <p>I define success metrics before writing requirements, not after. The question I start with: what would have to be true in the data for us to know this worked?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section id="cases">
+    <p class="section-label">Case Studies</p>
+    <h2>Four products. Four different classes of problem.</h2>
+    <p>Each case study reflects a distinct product challenge: AI diagnostics, SaaS monetization, zero-to-one hardware plus software, and mobile delivery at scale.</p>
+
+    <!-- CASE 1: SparkAI -->
+    <div class="case-body" style="margin-top: 2.5rem;">
+    <div class="case-study">
+      <div class="case-meta">
+        <span class="case-company">Eaton Corporation</span>
+        <span class="case-tag">AI Product</span>
+        <span class="case-tag">Diagnostics</span>
+        <span class="case-tag">Engineering Partnership</span>
+      </div>
+      <h3>SparkAI — AI-Powered EV Charger Diagnostics</h3>
+      <div class="case-body">
+        <div class="case-block">
+          <p class="case-block-label">Problem</p>
+          <p>EV charger fleets were generating high volumes of restart and connectivity failures with no systematic way to surface root causes from telemetry. Support teams were responding reactively, costs were rising, and fleet operators were losing confidence in system reliability. The raw OCPP data contained early warning patterns — but they were not being analyzed in any structured way.</p>
+        </div>
+        <div class="case-block">
+          <p class="case-block-label">Approach</p>
+          <p>I partnered with a strategic software partner's engineering and data science teams to define the diagnostic product from concept to delivery. That meant translating telemetry gaps into structured requirements, working with data scientists to determine which ML anomaly signals were reliable enough to surface to operators versus which needed more model training, and designing the operator-facing troubleshooting workflows that turned model output into guided next steps. I also built multi-layer prompt-engineering workflows to synthesize requirements and prioritize diagnostic opportunities across the roadmap.</p>
+        </div>
+        <div class="case-block">
+          <p class="case-block-label">Key decisions</p>
+          <p>The most important product decision was defining where the model's confidence ended and where human judgment needed to begin. We deliberately did not surface low-confidence anomalies to operators in the first release — a deferred feature that would have eroded trust if we had shipped it prematurely. I also pushed for proactive alerting before any reactive troubleshooting UI, because the customer experience problem was about anticipation, not just resolution.</p>
+        </div>
+        <div class="case-block">
+          <p class="case-block-label">Outcome</p>
+          <div class="outcome-row">
+            <div class="outcome-stat">
+              <span class="stat-num">~25%</span>
+              <span class="stat-label">reduction in charger downtime</span>
+            </div>
+            <div class="outcome-stat">
+              <span class="stat-num">Meaningful</span>
+              <span class="stat-label">reduction in reactive support costs</span>
+            </div>
+            <div class="outcome-stat">
+              <span class="stat-num">Reframed</span>
+              <span class="stat-label">customer narrative around reliability</span>
+            </div>
+          </div>
+        </div>
+        <div class="lesson-block">
+          <p class="case-block-label">Lesson</p>
+          <p>The PM's job in an AI product is not just requirements and prioritization. It is knowing where the model's confidence ends and where human judgment needs to begin — and building that boundary into the product explicitly before it becomes a support problem.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE 2: CNM -->
+    <div class="case-study">
+      <div class="case-meta">
+        <span class="case-company">Eaton Corporation</span>
+        <span class="case-tag">SaaS Monetization</span>
+        <span class="case-tag">Activation</span>
+        <span class="case-tag">Onboarding</span>
+      </div>
+      <h3>Charger Network Manager — SaaS Activation and Monetization</h3>
+      <div class="case-body">
+        <div class="case-block">
+          <p class="case-block-label">Problem</p>
+          <p>The Charger Network Manager SaaS platform had monthly activation below 12%, overall attachment around 36%, and subscription margins near 12%. The instinct in the organization was that the product itself was the problem. After mapping the activation funnel step by step and interviewing installers and sales reps directly, I traced the failure to a specific point: the handoff between physical hardware installation and digital software activation. Installers were completing the hardware setup and skipping activation entirely because there was no prompt to do it and no consequence for skipping it.</p>
+        </div>
+        <div class="case-block">
+          <p class="case-block-label">Approach</p>
+          <p>I restructured the entire commercial and onboarding model simultaneously. On the packaging side: collapsed multiple tiers into a single offering with one, two, three, four, and five year SKUs, then bundled a year-one term with every charger and adjusted pricing so the bundle remained margin-positive. On the vendor side: renegotiated terms so Eaton paid only for activated trials, aligning cost structure with realized value. On the activation side: designed in-box quickstart materials and a screen cling with a QR code into a guided onboarding flow, addressing installer drop-off at the physical-to-digital handoff. Then added self-service renewal, multi-charger automation, training, and sales collateral.</p>
+        </div>
+        <div class="case-block">
+          <p class="case-block-label">Key decisions</p>
+          <p>The decision to move simultaneously on packaging, vendor economics, and onboarding rather than sequentially was the right call — each change reinforced the others. The decision to renegotiate vendor terms before changing onboarding was critical: it created a cost structure that could absorb the free year-one bundle without margin erosion.</p>
+        </div>
+        <div class="case-block">
+          <p class="case-block-label">Outcome</p>
+          <div class="outcome-row">
+            <div class="outcome-stat">
+              <span class="stat-num">&gt;60%</span>
+              <span class="stat-label">monthly activation, up from under 12%</span>
+            </div>
+            <div class="outcome-stat">
+              <span class="stat-num">~30%</span>
+              <span class="stat-label">subscription margins, up from ~12%</span>
+            </div>
+            <div class="outcome-stat">
+              <span class="stat-num">~78%</span>
+              <span class="stat-label">overall attachment rate</span>
+            </div>
+          </div>
+        </div>
+        <div class="lesson-block">
+          <p class="case-block-label">Lesson</p>
+          <p>Adoption fails at handoff, not at product quality. The activation gap was invisible in aggregate metrics and only visible when I mapped the physical installation sequence against the expected digital flow. Funnel analysis and direct installer interviews together — neither alone — surfaced the root cause.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE 3: Provolt -->
+    <div class="case-study">
+      <div class="case-meta">
+        <span class="case-company">Leviton Manufacturing</span>
+        <span class="case-tag">Zero to One</span>
+        <span class="case-tag">Hardware + Software</span>
+        <span class="case-tag">Commercial IoT</span>
+      </div>
+      <h3>Provolt Room Controller — Zero to One in a Code-Driven Market</h3>
+      <div class="case-body">
+        <div class="case-block">
+          <p class="case-block-label">Problem</p>
+          <p>Energy codes were pushing small and mid-size commercial projects toward multi-box lighting control systems that installers found complex, time-consuming, and expensive. The market needed a single low-cost controller that met IECC, ASHRAE 90.1, and Title 24 requirements without requiring a specialist to commission it. No product in the market solved this cleanly.</p>
+        </div>
+        <div class="case-block">
+          <p class="case-block-label">Approach</p>
+          <p>I identified the gap, built the business case, and owned the product from concept through launch and iteration. The core product decision was to replace DIP switch and trim pot configuration with Bluetooth-based mobile commissioning — treating the contractor's phone as the primary configuration tool. I designed a "screwdriver replacement" app flow with contextual on-screen help and step-by-step guided setup, added seven-day adaptive occupancy behavior, improved auto calibration, and enabled two daylighting zones from a single photocell. The enablement side was equally important: demo kits, training videos, and field collateral that let distributors and reps demonstrate the product in under five minutes.</p>
+        </div>
+        <div class="case-block">
+          <p class="case-block-label">Key decisions</p>
+          <p>The commissioning experience was the actual product differentiator, not the hardware specification. The decision to invest engineering time in the mobile app UX rather than adding hardware features was the inflection point. Contractors who could commission a room in minutes on their phone became repeat buyers. The lesson from field feedback was that confidence in the tool matters more than feature count.</p>
+        </div>
+        <div class="case-block">
+          <p class="case-block-label">Outcome</p>
+          <div class="outcome-row">
+            <div class="outcome-stat">
+              <span class="stat-num">$10M+</span>
+              <span class="stat-label">annual revenue at flagship scale</span>
+            </div>
+            <div class="outcome-stat">
+              <span class="stat-num">60–80%</span>
+              <span class="stat-label">gross margins</span>
+            </div>
+            <div class="outcome-stat">
+              <span class="stat-num">Industry</span>
+              <span class="stat-label">award recognition; strong repeat channel sales</span>
+            </div>
+          </div>
+        </div>
+        <div class="lesson-block">
+          <p class="case-block-label">Lesson</p>
+          <p>In a hardware-plus-software product, the commissioning experience is the product. Contractors do not read manuals. They judge a product by whether they can figure it out on a job site in five minutes. Design for that moment first.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE 4: GE Cync -->
+    <div class="case-study">
+      <div class="case-meta">
+        <span class="case-company">GE Lighting, a Savant Company</span>
+        <span class="case-tag">Mobile SaaS</span>
+        <span class="case-tag">Delivery System</span>
+        <span class="case-tag">AI-Assisted Discovery</span>
+      </div>
+      <h3>Cync Smart Home App — Building a Delivery System That Held</h3>
+      <div class="case-body">
+        <div class="case-block">
+          <p class="case-block-label">Problem</p>
+          <p>The Cync mobile app suffered from UI inconsistencies, missing states, and incomplete test coverage across complex flows. Release cycles were delayed by rework discovered late in QA. Design, engineering, and QA were operating from different mental models of what done meant, and the gaps between them were showing up as defects rather than being caught in discovery.</p>
+        </div>
+        <div class="case-block">
+          <p class="case-block-label">Approach</p>
+          <p>I standardized the design-to-engineering workflow by linking fully mapped Figma screens to precise Gherkin BDD acceptance criteria, so that every screen state had a testable definition before engineering began. I then built LLM-driven journey models to explore edge cases, transitional states, and missing flows that traditional test plans had not caught — turning AI-assisted discovery into structured acceptance criteria rather than informal observations. I also introduced lightweight in-app surveys and NPS signals to validate whether UX changes were landing and to surface new friction points between releases.</p>
+        </div>
+        <div class="case-block">
+          <p class="case-block-label">Key decisions</p>
+          <p>The decision to require fully mapped Figma screens before engineering kickoff was the highest-leverage change. It slowed discovery slightly and sped up everything after. The LLM journey modeling was additive — it found real gaps — but its value depended entirely on the outputs being reviewed by an engineer before they became requirements. AI-generated edge cases are hypotheses, not specifications.</p>
+        </div>
+        <div class="case-block">
+          <p class="case-block-label">Outcome</p>
+          <div class="outcome-row">
+            <div class="outcome-stat">
+              <span class="stat-num">9%</span>
+              <span class="stat-label">improvement in app store ratings</span>
+            </div>
+            <div class="outcome-stat">
+              <span class="stat-num">~20%</span>
+              <span class="stat-label">reduction in rework</span>
+            </div>
+            <div class="outcome-stat">
+              <span class="stat-num">~15%</span>
+              <span class="stat-label">faster iteration cycles across 6 releases</span>
+            </div>
+          </div>
+        </div>
+        <div class="lesson-block">
+          <p class="case-block-label">Lesson</p>
+          <p>Distributed teams need shared artifacts, not shared meetings. The Figma-to-Gherkin workflow reduced the surface area for misalignment at every handoff. The meeting where everyone agrees is not the problem — the artifact that everyone interprets differently is.</p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- CRAFT -->
+  <section id="craft">
+    <p class="section-label">Craft</p>
+    <h2>How I structure product work</h2>
+    <p>These are the patterns and methods I apply consistently across roles and product surfaces.</p>
+    <div class="craft-grid">
+      <div class="craft-card">
+        <h3>Requirements</h3>
+        <p>I write engineering-ready requirements with inline validation conditions rather than separate test cases. Each requirement specifies what must be true in the system for the feature to be considered complete. Tradeoffs are documented in the requirement, not discovered in review.</p>
+      </div>
+      <div class="craft-card">
+        <h3>Prioritization</h3>
+        <p>I prioritize against a small set of explicitly defined success metrics, not a feature backlog ranked by intuition. The first question I ask about any initiative: what would have to be true in the data for us to know this worked?</p>
+      </div>
+      <div class="craft-card">
+        <h3>AI-Assisted Discovery</h3>
+        <p>I use LLM-driven journey modeling and prompt-engineered workflows to surface edge cases and missing states before they reach engineering. AI outputs are hypotheses — they require engineer review before becoming requirements. I build that boundary into the process explicitly.</p>
+      </div>
+      <div class="craft-card">
+        <h3>Stakeholder Alignment</h3>
+        <p>I write business cases before asking for roadmap investment, not after. The business case defines the problem, the bet, the success criteria, and the risks — in that order. It is not a pitch deck. It is a decision document.</p>
+      </div>
+      <div class="craft-card">
+        <h3>Metrics Frameworks</h3>
+        <p>I build lightweight product metrics frameworks that track adoption, reliability, and financial performance across the lifecycle — not just at launch. The goal is to make lifecycle decisions on data rather than on roadmap pressure or executive intuition.</p>
+      </div>
+      <div class="craft-card">
+        <h3>Cross-Functional Delivery</h3>
+        <p>I structure delivery around shared artifacts rather than shared meetings. Clear acceptance conditions, linked design specs, and explicit done definitions reduce the surface area for misalignment at every handoff between design, engineering, and QA.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOMAIN -->
+  <section id="domain">
+    <p class="section-label">Domain Coverage</p>
+    <h2>Technical and domain fluency</h2>
+    <p>Built across more than a decade of work in energy infrastructure, connected devices, AI systems, and enterprise SaaS.</p>
+    <div class="domain-grid">
+      <div class="domain-item">
+        <strong>AI and Data</strong>
+        <ul>
+          <li>Prompt engineering</li>
+          <li>LLM-driven discovery</li>
+          <li>ML anomaly detection</li>
+          <li>Telemetry pipelines</li>
+          <li>Responsible AI practices</li>
+          <li>GenAI forecasting</li>
+        </ul>
+      </div>
+      <div class="domain-item">
+        <strong>Platform and APIs</strong>
+        <ul>
+          <li>RESTful APIs</li>
+          <li>Microservices</li>
+          <li>SaaS architectures</li>
+          <li>IoT edge and cloud</li>
+          <li>OCPP telemetry</li>
+          <li>AWS, Azure</li>
+        </ul>
+      </div>
+      <div class="domain-item">
+        <strong>Energy and EV</strong>
+        <ul>
+          <li>EV charging infrastructure</li>
+          <li>CSMS platforms</li>
+          <li>DER and microgrids</li>
+          <li>BESS integration</li>
+          <li>OpenADR 2.0</li>
+          <li>Global EMS gateways</li>
+        </ul>
+      </div>
+      <div class="domain-item">
+        <strong>Commercial Controls</strong>
+        <ul>
+          <li>IECC, ASHRAE 90.1</li>
+          <li>Title 24 compliance</li>
+          <li>Relay panel systems</li>
+          <li>Bluetooth commissioning</li>
+          <li>Wireless IoT controls</li>
+          <li>National account solutions</li>
+        </ul>
+      </div>
+      <div class="domain-item">
+        <strong>Mobile and SaaS</strong>
+        <ul>
+          <li>Mobile app delivery</li>
+          <li>Cross-platform frameworks</li>
+          <li>BDD and Gherkin</li>
+          <li>Figma workflows</li>
+          <li>SaaS monetization</li>
+          <li>Activation optimization</li>
+        </ul>
+      </div>
+      <div class="domain-item">
+        <strong>Analytics and Tools</strong>
+        <ul>
+          <li>SQL</li>
+          <li>Power BI, Tableau</li>
+          <li>Jira, Confluence</li>
+          <li>Funnel analysis</li>
+          <li>NPS instrumentation</li>
+          <li>Predictive analytics</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Adam Rogowicz &nbsp;|&nbsp; <a href="mailto:a.rogowicz@gmail.com">a.rogowicz@gmail.com</a> &nbsp;|&nbsp; <a href="https://www.linkedin.com/in/rogowicz" target="_blank">linkedin.com/in/rogowicz</a></p>
+</footer>
+
+</body>
+</html>
