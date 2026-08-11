@@ -504,8 +504,8 @@
   <!-- CASE STUDIES -->
   <section id="cases">
     <p class="section-label">Case Studies</p>
-    <h2>Four products. Four different classes of problem.</h2>
-    <p>Each case study reflects a distinct product challenge: AI diagnostics, SaaS monetization, zero-to-one hardware plus software, and mobile delivery at scale.</p>
+    <h2>Five products. Five different classes of problem.</h2>
+    <p>Each case study reflects a distinct product challenge: AI diagnostics, SaaS monetization, cross-org platform consolidation, zero-to-one hardware plus software, and mobile delivery at scale.</p>
 
     <!-- CASE 1: SparkAI -->
     <div class="case-body" style="margin-top: 2.5rem;">
@@ -566,7 +566,7 @@
       <div class="case-body">
         <div class="case-block">
           <p class="case-block-label">Problem</p>
-          <p>The Charger Network Manager SaaS platform had monthly activation below 12%, overall attachment around 36%, and subscription margins near 12%. The instinct in the organization was that the product itself was the problem. After mapping the activation funnel step by step and interviewing installers and sales reps directly, I traced the failure to a specific point: the handoff between physical hardware installation and digital software activation. Installers were completing the hardware setup and skipping activation entirely because there was no prompt to do it and no consequence for skipping it.</p>
+          <p>The Charger Network Manager SaaS platform had monthly activation below 12%, overall attachment around 36%, and subscription margins near 12%. The instinct in the organization was that the product itself was the problem. After mapping the activation funnel step by step and interviewing installers and sales reps directly, I traced the failure to a specific point: the handoff between physical hardware installation and digital software activation. Installers were completing the hardware setup and skipping activation entirely because there was no prompt to do it and no consequence for skipping it. There was also no historical activation data to work from — nobody had been tracking it systematically, partly because bundled invoicing didn't separate software subscriptions from hardware and accessories. Before I could even establish what the starting activation rate really was, I had to build calculated fields to break those components out of the sales data.</p>
         </div>
         <div class="case-block">
           <p class="case-block-label">Approach</p>
@@ -600,7 +600,53 @@
       </div>
     </div>
 
-    <!-- CASE 3: Provolt -->
+    <!-- CASE 3: EMS Gateway -->
+    <div class="case-study">
+      <div class="case-meta">
+        <span class="case-company">Eaton Corporation</span>
+        <span class="case-tag">Platform Strategy</span>
+        <span class="case-tag">Cross-Org Alignment</span>
+        <span class="case-tag">Business Case Authorship</span>
+      </div>
+      <h3>Global EMS Gateway — From Regional MVP to Unified Platform</h3>
+      <div class="case-body">
+        <div class="case-block">
+          <p class="case-block-label">Problem</p>
+          <p>I owned a regional EV charging gateway limited to local load balancing for United States and Canadian fleets, capped at 25 chargers and running OCPP 1.6J, with no BESS or microgrid scope. While leading that program, cross-team investigation I initiated surfaced that EMEA was independently building a similar gateway focused on DER and microgrids. Shortly after, a third parallel effort turned up underway in APAC. All three teams were duplicating significant technical scope without shared awareness of one another.</p>
+        </div>
+        <div class="case-block">
+          <p class="case-block-label">Approach</p>
+          <p>I personally led the investigation that surfaced the EMEA and APAC efforts, then authored the business case to unify all three into a single global EMS gateway spanning EV, BESS, and microgrid use cases. Securing alignment meant building consensus across regional stakeholders who had each already invested real engineering time in their own approach, not simply mandating a single roadmap from outside. I contributed requirements, customer input, and field scenarios into the consolidated program, then joined a multi-region engineering summit to harmonize protocols, packaging, and phased launch.</p>
+        </div>
+        <div class="case-block">
+          <p class="case-block-label">Key decisions</p>
+          <p>The most consequential decision was treating this as a cross-region alignment problem first, not a technical architecture problem. The underlying protocol and platform choices were less contentious than convincing three teams that had each already built real momentum around their own approach to fold into a shared roadmap. Establishing a single certification path early, before the final architecture was locked, prevented the kind of certification divergence that would have made a later merge far more expensive.</p>
+        </div>
+        <div class="case-block">
+          <p class="case-block-label">Outcome</p>
+          <div class="outcome-row">
+            <div class="outcome-stat">
+              <span class="stat-num">One</span>
+              <span class="stat-label">global gateway, replacing three duplicated regional efforts</span>
+            </div>
+            <div class="outcome-stat">
+              <span class="stat-num">Unified</span>
+              <span class="stat-label">protocol set and certification path across EV, BESS, and microgrids</span>
+            </div>
+            <div class="outcome-stat">
+              <span class="stat-num">Platform</span>
+              <span class="stat-label">foundation established for partner integrations across all three regions</span>
+            </div>
+          </div>
+        </div>
+        <div class="lesson-block">
+          <p class="case-block-label">Lesson</p>
+          <p>The biggest platform risks are often organizational, not technical. Three capable teams built genuinely good solutions to what each believed was a regional problem. The actual product work was discovering that it wasn't regional at all, then making the case for consolidation before the divergence became too expensive to unwind.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE 4: Provolt -->
     <div class="case-study">
       <div class="case-meta">
         <span class="case-company">Leviton Manufacturing</span>
@@ -621,6 +667,7 @@
         <div class="case-block">
           <p class="case-block-label">Key decisions</p>
           <p>The commissioning experience was the actual product differentiator, not the hardware specification. The decision to invest engineering time in the mobile app UX rather than adding hardware features was the inflection point. Contractors who could commission a room in minutes on their phone became repeat buyers. The lesson from field feedback was that confidence in the tool matters more than feature count.</p>
+          <p>A second, higher-stakes decision came after launch: leadership had settled on Zigbee as the wireless standard for the next generation of products, and I disagreed. Having tracked the emerging Bluetooth SIG 5.0 mesh rollout closely, I spent months building the case for Bluetooth mesh instead, against sustained resistance. The advocacy succeeded — Bluetooth mesh became the standard for every subsequent product with a mobile app, and by the time I left Leviton, six product lines originally scoped as Zigbee-only had been built on it instead.</p>
         </div>
         <div class="case-block">
           <p class="case-block-label">Outcome</p>
@@ -639,6 +686,10 @@
             </div>
           </div>
         </div>
+        <div class="case-block">
+          <p class="case-block-label">Portfolio context</p>
+          <p>Provolt was the flagship product in a broader commercial IoT portfolio I built and retained over time, including EZMax and GreenMAX relay panels, DRC wireless controls, IRC and Sapphire room controllers, and OEM white-label production for other manufacturers.</p>
+        </div>
         <div class="lesson-block">
           <p class="case-block-label">Lesson</p>
           <p>In a hardware-plus-software product, the commissioning experience is the product. Contractors do not read manuals. They judge a product by whether they can figure it out on a job site in five minutes. Design for that moment first.</p>
@@ -646,7 +697,7 @@
       </div>
     </div>
 
-    <!-- CASE 4: GE Cync -->
+    <!-- CASE 5: GE Cync -->
     <div class="case-study">
       <div class="case-meta">
         <span class="case-company">GE Lighting, a Savant Company</span>
