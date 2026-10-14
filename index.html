@@ -326,6 +326,69 @@
       color: var(--ink-light);
     }
 
+    /* BUILDING NOW */
+    .status-block p {
+      font-size: 0.92rem;
+      margin: 0;
+    }
+
+    .status-block .status-pill {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 0.15rem 0.6rem;
+      border-radius: 2px;
+      margin-bottom: 0.5rem;
+    }
+
+    .screens-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-top: 0.4rem;
+    }
+
+    .screens-grid figure {
+      margin: 0;
+    }
+
+    .screens-grid a {
+      display: block;
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      overflow: hidden;
+      background: var(--bg-warm);
+      transition: border-color 0.2s;
+    }
+
+    .screens-grid a:hover { border-color: var(--accent); }
+
+    .screens-grid img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: top left;
+    }
+
+    .screens-grid figcaption {
+      font-size: 0.75rem;
+      color: var(--ink-faint);
+      margin-top: 0.4rem;
+      line-height: 1.4;
+    }
+
+    .screens-note {
+      font-size: 0.75rem;
+      color: var(--ink-faint);
+      font-style: italic;
+      margin-top: 0.8rem;
+    }
+
     /* CRAFT */
     .craft-grid {
       display: grid;
@@ -425,6 +488,7 @@
     @media (max-width: 600px) {
       .about-grid { grid-template-columns: 1fr; }
       .craft-grid { grid-template-columns: 1fr; }
+      .screens-grid { grid-template-columns: 1fr; }
       .domain-grid { grid-template-columns: 1fr 1fr; }
       .outcome-row { gap: 1.2rem; }
       nav a { padding: 0.9rem 0.7rem; font-size: 0.68rem; }
@@ -469,6 +533,7 @@
   <div class="nav-inner">
     <a href="#about">About</a>
     <a href="#cases">Case Studies</a>
+    <a href="#building">Building Now</a>
     <a href="#craft">Craft</a>
     <a href="#domain">Domain</a>
   </div>
@@ -742,6 +807,69 @@
         </div>
       </div>
     </div>
+    </div>
+  </section>
+
+  <!-- BUILDING NOW -->
+  <section id="building">
+    <p class="section-label">Building Now</p>
+    <h2>Hands-on AI, built end to end</h2>
+    <p>Every case study above is work I led inside a company. This one I built myself.</p>
+
+    <div class="case-study" style="margin-top: 2.5rem;">
+      <div class="case-meta">
+        <span class="case-company">Personal Project</span>
+        <span class="case-tag">Memory Care</span>
+        <span class="case-tag">AI-Native</span>
+        <span class="case-tag">Voice-First</span>
+      </div>
+      <h3>MemoryKeeper — AI Oral History for Memory Care</h3>
+      <div class="case-body">
+        <div class="case-block">
+          <p class="case-block-label">Problem</p>
+          <p>Watching people around me age, I saw how much of someone's story disappears because no one captured it in time. Families rarely have a simple, structured way to do it. Writing a memoir means facing a blank page. Recorded interviews depend on someone knowing what to ask. For people experiencing memory decline, both get harder every month. What's missing is something that works through natural, self-paced conversation, asking real follow-up questions and using memory recall techniques to surface older memories that are otherwise hard to reach.</p>
+        </div>
+        <div class="case-block">
+          <p class="case-block-label">Approach</p>
+          <p>I took MemoryKeeper from concept through an external beta myself. I defined the vision, target users, MVP requirements, and user journeys, then built the full stack hands-on with Claude Code, Railway, PostgreSQL, and third-party speech-to-text and text-to-speech. The AI conducts the conversation, follows the threads worth following, and progressively structures what it hears into people, places, relationships, events, and a life timeline. Families get a dashboard with a relationship map, family tree, places map, and timeline, plus access to the original recordings and transcripts. Once the product was live, I recruited outside testers and ran a beta to see how real people would use it.</p>
+        </div>
+        <div class="case-block">
+          <p class="case-block-label">Key decisions</p>
+          <p>The core design principle was radical simplicity. The primary interface has one call to action: Start Talking. There's no setup, no blank document, and no need to decide where a story begins. For users with memory challenges, every extra step is a reason not to start.</p>
+          <p>The second decision was to structure memories, not just transcribe them. A transcript preserves words. A connected map of people, places, and events preserves a life in a form a family can actually explore.</p>
+        </div>
+        <div class="case-block status-block">
+          <p class="case-block-label">Status</p>
+          <span class="status-pill">External beta complete</span>
+          <p>The next phase focuses on validating with the population the product is built for, working alongside memory care and elder care researchers rather than recruiting from my own network.</p>
+        </div>
+        <div class="lesson-block">
+          <p class="case-block-label">Lesson</p>
+          <p>In the beta, engagement fell well short of the enthusiasm testers showed when they signed up. The real issue was who I'd recruited: younger, tech-comfortable people who made good product testers but didn't have the problem. Behavior beats enthusiasm, but the wrong audience can answer the wrong question.</p>
+        </div>
+        <div class="case-block">
+          <p class="case-block-label">The product</p>
+          <div class="screens-grid">
+            <figure>
+              <a href="assets/memorykeeper/relationship-map.webp" target="_blank"><img src="assets/memorykeeper/relationship-map-thumb.webp" alt="MemoryKeeper relationship map: people clustered by family, friends, work, and church, connected to the storyteller by line type" loading="lazy" width="1100" height="688"></a>
+              <figcaption>Relationship map: everyone in the story, clustered and connected the way they were described.</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/memorykeeper/family-tree.webp" target="_blank"><img src="assets/memorykeeper/family-tree-thumb.webp" alt="MemoryKeeper family tree spanning five generations" loading="lazy" width="1100" height="688"></a>
+              <figcaption>Family tree: five generations, assembled from conversation.</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/memorykeeper/places-map.webp" target="_blank"><img src="assets/memorykeeper/places-map-thumb.webp" alt="MemoryKeeper places map with circles sized by number of stories told in each place" loading="lazy" width="1100" height="688"></a>
+              <figcaption>Places: circles grow with the number of stories told there.</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/memorykeeper/key-moments.webp" target="_blank"><img src="assets/memorykeeper/key-moments-thumb.webp" alt="MemoryKeeper key moments page with story summaries, audio playback, and transcript" loading="lazy" width="1100" height="688"></a>
+              <figcaption>Key moments: AI summaries that link back to the original audio and transcript.</figcaption>
+            </figure>
+          </div>
+          <p class="screens-note">Screens recreated with a fictional storyteller. Real beta conversations stay private.</p>
+        </div>
+      </div>
     </div>
   </section>
 
